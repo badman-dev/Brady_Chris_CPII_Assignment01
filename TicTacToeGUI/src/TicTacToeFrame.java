@@ -9,6 +9,7 @@ public class TicTacToeFrame extends JFrame {
     JPanel turnPnl;
     JLabel titleLbl;
     JLabel turnLbl;
+    JButton quitBtn;
 
     private static TicTacToeTile[] ticBtns;
 
@@ -75,8 +76,12 @@ public class TicTacToeFrame extends JFrame {
     private void createTurnPanel() {
         turnPnl = new JPanel();
         turnLbl = new JLabel("TURN LABEL");
+        quitBtn = new JButton("Quit");
+
+        quitBtn.addActionListener((ActionEvent ae) -> System.exit(0));
 
         turnPnl.add(turnLbl);
+        turnPnl.add(quitBtn);
         add(turnPnl, BorderLayout.SOUTH);
     }
 
