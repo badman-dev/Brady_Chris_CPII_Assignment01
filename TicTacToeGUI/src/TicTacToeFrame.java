@@ -4,9 +4,12 @@ import java.awt.event.ActionEvent;
 import java.util.Scanner;
 
 public class TicTacToeFrame extends JFrame {
-
+    JPanel titlePnl;
     JPanel gamePnl;
-//    JOptionPane optionsPn;
+    JPanel turnPnl;
+    JLabel titleLbl;
+    JLabel turnLbl;
+
     private static TicTacToeTile[] ticBtns;
 
     private static final int ROW = 3;
@@ -20,7 +23,9 @@ public class TicTacToeFrame extends JFrame {
     final int MOVES_FOR_WIN = 5;
     final int MOVES_FOR_TIE = 7;
     public TicTacToeFrame() {
+        createTitlePanel();
         createGamePanel();
+        createTurnPanel();
 
         Toolkit tk=Toolkit.getDefaultToolkit();
         Dimension screenSize = tk.getScreenSize();
@@ -30,6 +35,17 @@ public class TicTacToeFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+
+        clearBoard();
+        display();
+    }
+
+    private void createTitlePanel() {
+        titlePnl = new JPanel();
+        titleLbl = new JLabel("TIC TAC TOE");
+
+        titlePnl.add(titleLbl);
+        add(titlePnl, BorderLayout.NORTH);
     }
 
     private void createGamePanel() {
@@ -53,8 +69,14 @@ public class TicTacToeFrame extends JFrame {
             gamePnl.add(ticBtn);
         }
         add(gamePnl, BorderLayout.CENTER);
+    }
 
-        clearBoard();
+    private void createTurnPanel() {
+        turnPnl = new JPanel();
+        turnLbl = new JLabel("TURN LABEL");
+
+        turnPnl.add(turnLbl);
+        add(turnPnl, BorderLayout.SOUTH);
     }
 
     private void playerMove(int row, int col) {
@@ -65,8 +87,6 @@ public class TicTacToeFrame extends JFrame {
 
         board[row][col] = player;
         moveCnt++;
-
-        display();
 
         if(moveCnt >= MOVES_FOR_WIN)
         {
@@ -111,6 +131,8 @@ public class TicTacToeFrame extends JFrame {
         {
             player = "X";
         }
+
+        display();
     }
 
     private static void clearBoard()
@@ -124,7 +146,7 @@ public class TicTacToeFrame extends JFrame {
             }
         }
     }
-    private static void display()
+    private void display()
     {
         // shows the Tic Tac Toe game
         for(int row=0; row < ROW; row++)
@@ -141,6 +163,8 @@ public class TicTacToeFrame extends JFrame {
             }
             System.out.println();
         }
+
+        turnLbl.setText("Player " + player + "'s turn.");
 
     }
     private static boolean isValidMove(int row, int col)
