@@ -80,6 +80,9 @@ public class TicTacToeFrame extends JFrame {
     }
 
     private void playerMove(int row, int col) {
+        if (!playing) {
+            return;
+        }
         if (!isValidMove(row, col)) {
             JOptionPane.showMessageDialog(null, "Illegal move!");
             return;
