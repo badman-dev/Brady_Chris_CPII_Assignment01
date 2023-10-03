@@ -75,7 +75,8 @@ public class TicTacToeFrame extends JFrame {
                 display();
                 System.out.println("Player " + player + " wins!");
                 playing = false;
-                int answer = JOptionPane.showConfirmDialog(null, "Player " + player + " wins! Do you want to play again?", "Player " + player + " wins!", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(null, "Player " + player + " wins!");
+                int answer = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play again?", JOptionPane.YES_NO_OPTION);
                 if (answer == JOptionPane.YES_OPTION) {
                     clearBoard();
                     display();
@@ -90,7 +91,8 @@ public class TicTacToeFrame extends JFrame {
                 display();
                 System.out.println("It's a Tie!");
                 playing = false;
-                int answer = JOptionPane.showConfirmDialog(null, "It's a tie! Do you want to play again?", "It's a tie!", JOptionPane.YES_NO_OPTION);
+                JOptionPane.showMessageDialog(null, "It's a tie!");
+                int answer = JOptionPane.showConfirmDialog(null, "Do you want to play again?", "Play again?", JOptionPane.YES_NO_OPTION);
                 if (answer == JOptionPane.YES_OPTION) {
                     clearBoard();
                     display();
