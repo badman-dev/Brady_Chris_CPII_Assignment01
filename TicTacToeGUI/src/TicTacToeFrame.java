@@ -31,7 +31,7 @@ public class TicTacToeFrame extends JFrame {
         Dimension screenSize = tk.getScreenSize();
 
         setTitle("Tic Tac Toe");
-        setSize((int)(screenSize.width * .75), (int)(screenSize.height * .75));
+        setSize(360, 480);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
@@ -43,6 +43,7 @@ public class TicTacToeFrame extends JFrame {
     private void createTitlePanel() {
         titlePnl = new JPanel();
         titleLbl = new JLabel("TIC TAC TOE");
+        titleLbl.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 24));
 
         titlePnl.add(titleLbl);
         add(titlePnl, BorderLayout.NORTH);
